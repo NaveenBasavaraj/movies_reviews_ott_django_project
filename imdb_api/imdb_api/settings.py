@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-^a2yj^z1u6%oz#00&efslk#pv%ir5m*)$hrfn$_*wq-!hh^m43
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["8000-naveenbasav-imdbdjangor-t0d8f4fsqat.ws-us116.gitpod.io"]
+CSRF_TRUSTED_ORIGINS = ["https://8000-naveenbasav-imdbdjangor-t0d8f4fsqat.ws-us116.gitpod.io"]
 
 
 # Application definition
@@ -38,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'movies',
+    'watchbuddy',
+    'user_app',
 ]
 
 MIDDLEWARE = [
