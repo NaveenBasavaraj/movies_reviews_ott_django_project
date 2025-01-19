@@ -1,5 +1,5 @@
 from django.urls import path, include
-from movies_app.views import movies_list, movie_details, StreamerDetailAV, StreamAV
+from movies_app.views import movies_list, movie_details, StreamerDetailAV, StreamAV, ReviewAV, ReviewDetailAV
 
 urlpatterns = [
     path("api/", include("movies_app.api.urls") ),
@@ -7,4 +7,6 @@ urlpatterns = [
     path("list/<int:pk>/", movie_details, name="movies-details"),
     path("stream/list/", StreamAV.as_view(), name="stream-list"),
     path("stream/list/<int:pk>/", StreamerDetailAV.as_view(), name="stream-details"),
+    path("review/list/", ReviewAV.as_view(), name="review-list"),
+    path("review/list/<int:pk>/", ReviewDetailAV.as_view(), name="review-details"),
 ]

@@ -9,6 +9,52 @@ from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnl
 from rest_framework.throttling import UserRateThrottle, AnonRateThrottle, ScopedRateThrottle
 
 
+class ReviewAV(APIView):
+    # permission_classes = [IsAdminOrReadOnly]
+    throttle_classes = [AnonRateThrottle]
+
+    def get(self, request):
+        review = Review.objects.all()
+        serializer = ReviewSerializer(review, many=True, context={'request': request})
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = ReviewSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors)
+
+
+class ReviewDetailAV(APIView):
+    # permission_classes = [IsAdminOrReadOnly]
+    throttle_classes = [AnonRateThrottle]
+
+    def get(self, request, pk):
+        try:
+            review = Review.objects.get(pk=pk)
+        except Streamer.DoesNotExist:
+            return Response({'error': 'Not found'}, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = ReviewSerializer(review, context={'request': request})
+        return Response(serializer.data)
+
+    def put(self, request, pk):
+        platform = Streamer.objects.get(pk=pk)
+        serializer = StreamerSerializer(platform, 
+                                              data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk):
+        platform = Streamer.objects.get(pk=pk)
+        platform.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
 class StreamAV(APIView):
     # permission_classes = [IsAdminOrReadOnly]
     throttle_classes = [AnonRateThrottle]
