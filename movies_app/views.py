@@ -10,7 +10,7 @@ from rest_framework.throttling import UserRateThrottle, AnonRateThrottle, Scoped
 
 
 class ReviewAV(APIView):
-    # permission_classes = [IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated]
     throttle_classes = [AnonRateThrottle]
 
     def get(self, request):
@@ -28,7 +28,7 @@ class ReviewAV(APIView):
 
 
 class ReviewDetailAV(APIView):
-    # permission_classes = [IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated]
     throttle_classes = [AnonRateThrottle]
 
     def get(self, request, pk):
