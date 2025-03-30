@@ -21,3 +21,28 @@ class ReviewList(generics.ListAPIView):
 class ReviewDetail(generics.ListAPIView):
     serializer_class = ReviewModelSerializer
     queryset = Review.objects.all()
+
+
+
+class MovieList(generics.ListAPIView):
+    serializer_class = MovieModelSerializer
+    
+    def get_queryset(self):
+        username = self.request.query_params.get('username', None)
+        return Movie.objects.filter(review_user__username=username)
+
+class MovieDetail(generics.ListAPIView):
+    serializer_class = MovieModelSerializer
+    queryset = Movie.objects.all()
+
+
+class StreamerList(generics.ListAPIView):
+    serializer_class = StreamerModelSerializer
+    
+    def get_queryset(self):
+        username = self.request.query_params.get('username', None)
+        return Movie.objects.filter(review_user__username=username)
+
+class StreamerDetail(generics.ListAPIView):
+    serializer_class = StreamerModelSerializer
+    queryset = Movie.objects.all()
