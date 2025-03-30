@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-iexpusfq$6b8dtbzctm)g9mpv1x2l%9puf@blfm_z@!cdav*zk
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-naveenbasav-imdbdjangor-7cfr4cvsrrx.ws-us117.gitpod.io',
-                '8000-naveenbasav-moviesrevie-6cyvn6xm1b1.ws-us117.gitpod.io']
+                '8000-naveenbasav-moviesrevie-6cyvn6xm1b1.ws-us117.gitpod.io',
+                '8000-naveenbasav-moviesrevie-7z7pugg1esw.ws-us118.gitpod.io']
 CSRF_TRUSTED_ORIGINS = ['https://8000-naveenbasav-imdbdjangor-7cfr4cvsrrx.ws-us117.gitpod.io',
                         'https://8000-naveenbasav-moviesrevie-6cyvn6xm1b1.ws-us117.gitpod.io']
 
