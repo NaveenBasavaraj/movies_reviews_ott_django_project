@@ -7,25 +7,24 @@
     <title>{% block title %}MovieVerse{% endblock %}</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="https://unpkg.com/htmx.org"></script>
-    <link rel="stylesheet" href="{% static 'movies/css/custom.css' %}">
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="{% url 'home' %}">MovieVerse</a>
+            <a class="navbar-item" href="{% url 'index' %}">MovieVerse</a>
         </div>
 
         <div class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="{% url 'home' %}">Home</a>
-                <a class="navbar-item" href="{% url 'movie_list' %}">Movies</a>
-                <a class="navbar-item" href="{% url 'reviews' %}">Reviews</a>
+                <a class="navbar-item">Home</a>
+                <a class="navbar-item">Movies</a>
+                <a class="navbar-item">Reviews</a>
             </div>
 
             <div class="navbar-end">
-                <a class="navbar-item" href="{% url 'login' %}">Login</a>
-                <a class="navbar-item" href="{% url 'signup' %}">Signup</a>
+                <a class="navbar-item">Login</a>
+                <a class="navbar-item">Signup</a>
             </div>
         </div>
     </nav>

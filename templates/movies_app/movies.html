@@ -1,0 +1,34 @@
+<!-- movies/templates/movies/movies.html -->
+{% extends 'movies/base.html' %}
+
+{% block title %}Movies - Movie Reviews{% endblock %}
+
+{% block content %}
+  <section class="section">
+    <h1 class="title">Movies</h1>
+    {% if movies %}
+      <div class="columns is-multiline">
+        {% for movie in movies %}
+          <div class="column is-one-quarter">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image is-4by3">
+                  <img src="{{ movie.poster_url }}" alt="{{ movie.title }}">
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <p class="title is-4">{{ movie.title }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No movies available at the moment.</p>
+    {% endif %}
+  </section>
+{% endblock %}

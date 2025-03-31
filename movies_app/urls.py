@@ -1,5 +1,6 @@
 from django.urls import path, include
 from movies_app.views import movies_list, movie_details, StreamerDetailAV, StreamAV, ReviewAV, ReviewDetailAV
+from movies_app.app_views import index, movies
 
 urlpatterns = [
     path("api/", include("movies_app.api.urls") ),
